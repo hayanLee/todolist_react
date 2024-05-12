@@ -9,7 +9,7 @@ export default function AddTodo({ onAdd }) {
         else setContent(e.target.value);
     };
     const handleSubmit = () => {
-        onAdd({ title, id: uuidv4(), content });
+        onAdd({ title, id: uuidv4(), content, done: false });
         setTitle('');
         setContent('');
     };

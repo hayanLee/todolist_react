@@ -21,14 +21,34 @@ export default function TodoList() {
     return (
         <div>
             <AddTodo onAdd={handleAddTodo} />
-            {todos.map((todo) => (
-                <Todo
-                    key={todo.id}
-                    todo={todo}
-                    onDelete={handleDeleteTodo}
-                    onChange={handleChangeTodo}
-                />
-            ))}
+            <div className='mb-4'>
+                <h1>Working</h1>
+                {todos.map(
+                    (todo) =>
+                        !todo.done && (
+                            <Todo
+                                key={todo.id}
+                                todo={todo}
+                                onDelete={handleDeleteTodo}
+                                onChange={handleChangeTodo}
+                            />
+                        )
+                )}
+            </div>
+            <div>
+                <h1>Done</h1>
+                {todos.map(
+                    (todo) =>
+                        todo.done && (
+                            <Todo
+                                key={todo.id}
+                                todo={todo}
+                                onDelete={handleDeleteTodo}
+                                onChange={handleChangeTodo}
+                            />
+                        )
+                )}
+            </div>
         </div>
     );
 }
