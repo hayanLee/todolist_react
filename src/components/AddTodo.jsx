@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function AddTodo({ onAdd }) {
     const [title, setTitle] = useState('');
@@ -8,7 +9,7 @@ export default function AddTodo({ onAdd }) {
         else setContent(e.target.value);
     };
     const handleSubmit = () => {
-        onAdd({ title, id: 4, content });
+        onAdd({ title, id: uuidv4(), content });
         setTitle('');
         setContent('');
     };
