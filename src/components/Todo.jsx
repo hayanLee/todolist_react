@@ -24,7 +24,7 @@ export default function Todo({ todo, onDelete, onChange }) {
                     className='bg-sky-200 p-1.5 rounded-lg hover:bg-sky-400'
                     onClick={handleChange}
                 >
-                    {done ? <span>취소 ❌</span> : <span>완료 ✅</span>}
+                    {done ? <span>취소 ↩️</span> : <span>완료 ✅</span>}
                 </button>
             </div>
         </div>

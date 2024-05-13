@@ -10,6 +10,8 @@ export default function AddTodo({ onAdd }) {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (e.target[0].value.trim().length === 0) return alert('제목을 입력하세요');
+        if (e.target[1].value.trim().length === 0) return alert('내용을 입력하세요');
         onAdd({ title, id: uuidv4(), content, done: false });
         setTitle('');
         setContent('');
@@ -26,6 +28,7 @@ export default function AddTodo({ onAdd }) {
                         id='title'
                         value={title}
                         onChange={handleChange}
+                        maxLength={15}
                         className='mr-4 ml-2 rounded-lg p-1.5'
                     />
                     <label htmlFor='content' className='font-bold'>
@@ -36,6 +39,7 @@ export default function AddTodo({ onAdd }) {
                         id='content'
                         value={content}
                         onChange={handleChange}
+                        maxLength={20}
                         className='mr-4 ml-2 rounded-lg p-1.5'
                     />
                 </>
