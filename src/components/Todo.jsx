@@ -1,14 +1,14 @@
 import React from 'react';
 
 export default function Todo({ todo, onDelete, onChange }) {
-    const { title, content, done } = todo;
+    const { title, content, isDone } = todo;
     const handleDelete = () => onDelete(todo);
     const handleChange = () => onChange(todo);
 
     return (
         <div
             className={`flex flex-col w-[200px] h-[200px] ${
-                !done ? 'bg-yellow-100' : 'bg-pink-100'
+                !isDone ? 'bg-yellow-100' : 'bg-pink-100'
             } p-3 rounded-lg`}
         >
             <h2 className='font-bold text-2xl'>{title}</h2>
@@ -24,7 +24,7 @@ export default function Todo({ todo, onDelete, onChange }) {
                     className='bg-sky-200 p-1.5 rounded-lg hover:bg-sky-400'
                     onClick={handleChange}
                 >
-                    {done ? <span>취소 ↩️</span> : <span>완료 ✅</span>}
+                    {isDone ? <span>취소 ↩️</span> : <span>완료 ✅</span>}
                 </button>
             </div>
         </div>
